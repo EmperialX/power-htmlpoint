@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Control Systems Security</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="ics-theme.css">
+    <link rel="stylesheet" href="custom-fixes.css">
+    <link rel="stylesheet" href="custom-animation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="ics-theme">
+    <!-- Industrial circuit pattern overlay -->
+    <div class="circuit-pattern"></div>
+
+    <!-- Rest of the body content -->
+    <div class="presentation-container">
+        <div class="controls">
+            <button id="prev" class="nav-btn"><i class="fas fa-chevron-left"></i></button>
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+            <button id="next" class="nav-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <div class="slide active" id="title-slide">
+            <div class="slide-content">
+                <div class="hud-display">
+                    <div class="hud-status"><span class="hud-icon"></span>SYSTEM ACTIVE</div>
+                    <div class="hud-time">SECURITY BRIEFING</div>
+                </div>
+                <div class="title-content">
+                    <div class="title-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h1>ICS Security Research</h1>
+                    <p class="subtitle">Simulation and Analysis of Cyber Attacks on Industrial Control Systems Using LOLBin Techniques</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <div class="industrial-header">Project Overview</div>
+                <h2><i class="fas fa-project-diagram"></i> Project Overview</h2>
+                <div class="content-box">
+                    <div class="industrial-warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>This research demonstrates critical vulnerabilities in industrial infrastructure that could lead to significant physical impact if exploited.</p>
+                    </div>
+                    
+                    <p>This research investigates the exploitation of <strong>Living Off the Land Binaries (LOLBins)</strong> within Industrial Control Systems (ICS) environments, focusing on binaries that can manipulate industrial protocols such as Modbus and OPC UA.</p>
+                    
+                    <blockquote>
+                        ICS forms the backbone of critical infrastructure worldwide but are increasingly vulnerable to sophisticated cyber attacks.
+                    </blockquote>
+                    
+                    <p>The project develops a comprehensive simulation environment that replicates a complete industrial infrastructure based on the <strong>Purdue Model</strong>, implementing all levels from enterprise networks to field devices.</p>
+                    
+                    <div class="project-image-container">
+                        <img src="architecture.png" alt="Project Architecture" class="project-image">
+                    </div>
+                    
+                    <p>This environment serves as a testbed for demonstrating sophisticated attack chains following the <strong>ICS Cyber Kill Chain methodology</strong> - from initial access through corporate network vulnerabilities to protocol-specific attacks that manipulate industrial processes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-exclamation-triangle"></i> Growing Threat Landscape</h2>
+                <div class="content-box">
+                    <p>The threat landscape for Industrial Control Systems is rapidly evolving with several key concerns:</p>
+                    
+                    <ul>
+                        <li><strong>87% increase</strong> in ICS-specific vulnerabilities in the past three years</li>
+                        <li><strong>Integration Challenges</strong>: Convergence of IT and OT networks expanding attack surfaces</li>
+                        <li><strong>Knowledge Gap</strong>: Limited understanding of LOLBin techniques in ICS environments</li>
+                        <li><strong>Real-world Impact</strong>: Recent attacks like Colonial Pipeline and TRITON demonstrate catastrophic potential</li>
+                    </ul>
+                    
+                    <img class="internet-image" src="https://vlsiweb.com/wp-content/uploads/2024/12/power-grid-synthesis-1024x585.jpg" alt="ICS Security Threats">
+                    
+                    <p class="definition">LOLBins are legitimate executables that can be misused for malicious purposes, presenting a unique challenge in ICS environments where it's difficult to distinguish between legitimate and malicious use.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-sitemap"></i> The Purdue Model Implementation</h2>
+                <div class="content-box">
+                    <p>Our simulation environment replicates the complete Purdue Model architecture:</p>
+                    
+                    <img class="internet-image" src="Purdue.png" alt="Purdue Model Implementation">
+                    
+                    <div class="two-columns">
+                        <div class="column">
+                            <h3>Upper Levels:</h3>
+                            <ul>
+                                <li><strong>Enterprise Network (Level 5)</strong>: Business logistics and planning</li>
+                                <li><strong>Corporate Network (Level 4)</strong>: Production planning and scheduling</li>
+                                <li><strong>DMZ Security Boundaries</strong>: Controlled data exchange</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h3>Lower Levels:</h3>
+                            <ul>
+                                <li><strong>Operations Network (Level 3)</strong>: SCADA servers and historians</li>
+                                <li><strong>Control Network (Level 2)</strong>: HMIs and supervisory systems</li>
+                                <li><strong>Process Network (Level 1)</strong>: PLCs and control systems</li>
+                                <li><strong>Field Network (Level 0)</strong>: Sensors and actuators</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <img class="internet-image" src="https://www.se.com/us/en/assets/746/media/232578/2000/purdue-model-network-drawing-ot-guide-se.jpg" alt="Purdue Model">
+                    
+                    <p>The environment includes implementation of industrial protocols including <strong>Modbus TCP</strong>, <strong>DNP3</strong>, and <strong>OPC UA</strong> with appropriate network segmentation between zones.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-terminal"></i> LOLBin Techniques in ICS</h2>
+                <div class="content-box">
+                    <p>Our project has developed a comprehensive classification framework for ICS-specific LOLBin techniques:</p>
+                    
+                    <div class="methodology-grid">
+                        <div class="methodology-item">
+                            <h4>Engineering Workstation Tools</h4>
+                            <p>PLC programming software that can be used to upload malicious logic</p>
+                        </div>
+                        <div class="methodology-item">
+                            <h4>Diagnostic Utilities</h4>
+                            <p>Protocol analyzers that can be used to perform reconnaissance</p>
+                        </div>
+                        <div class="methodology-item">
+                            <h4>Remote Management Tools</h4>
+                            <p>Administration software that can be used for lateral movement</p>
+                        </div>
+                        <div class="methodology-item">
+                            <h4>Data Transfer Tools</h4>
+                            <p>Historian clients that can exfiltrate operational data</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-image-container">
+                        <img src="lolbin.png" alt="LOLBin Attack Demonstration" class="project-image">
+                    </div>
+                    
+                    <p class="attack-detail">The project has successfully demonstrated how 15+ legitimate ICS tools can be weaponized without triggering traditional security controls.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-cogs"></i> ICS Kill Chain Implementation</h2>
+                <div class="content-box">
+                    <p>Our research implemented a two-stage attack model that follows the ICS Cyber Kill Chain:</p>
+                    
+                    <img class="internet-image" src="killchain.png" alt="ICS Kill Chain Model">
+                    
+                    <div class="two-columns">
+                        <div class="column">
+                            <h3>Stage 1: IT Intrusion</h3>
+                            <ol>
+                                <li>Reconnaissance of enterprise systems</li>
+                                <li>Initial access through web vulnerability</li>
+                                <li>Privilege escalation in corporate network</li>
+                                <li>Lateral movement to engineering stations</li>
+                            </ol>
+                        </div>
+                        <div class="column">
+                            <h3>Stage 2: ICS-Specific Attacks</h3>
+                            <ol>
+                                <li>Development of protocol-specific payloads</li>
+                                <li>Validation in test environment</li>
+                                <li>Execution against production systems</li>
+                                <li>Physical impact assessment</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <img class="internet-image" src="https://www.sans.org/media/img/ics-killchain.png" alt="ICS Kill Chain">
+                    
+                    <p class="attack-overview">Our unique contribution is the integration of LOLBin techniques with established kill chain methodology, demonstrating complete attack chains from enterprise network to physical process impact.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <div class="hud-display">
+                    <div class="hud-status"><span class="hud-icon"></span>ATTACK SIMULATION</div>
+                </div>
+                <h2><i class="fas fa-flask"></i> Attack Simulation Scenarios</h2>
+                <div class="content-box">
+                    <p>Our research demonstrated several sophisticated attack scenarios:</p>
+                    
+                    <ul>
+                        <li><strong>Initial Access via Corporate Network</strong>: Enterprise web application vulnerability exploitation</li>
+                        <li><strong>Protocol-Based Attacks</strong>: Modbus function code scanning, register manipulation</li>
+                        <li><strong>Engineering Workstation Compromise</strong>: Legitimate PLC programming tools misuse</li>
+                        <li><strong>Firmware-Based Attack</strong>: Modification through legitimate update utilities</li>
+                    </ul>
+                    
+                    <div class="project-image-container">
+                        <img src="attackchain.png" alt="Attack Chain Visualization" class="project-image">
+                    </div>
+                    
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <div class="stat-value">92%</div>
+                            <div class="stat-label">Success rate for process manipulation</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">27%</div>
+                            <div class="stat-label">Detection rate by traditional controls</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">85%</div>
+                            <div class="stat-label">Maximum achieved protection</div>
+                        </div>
+                    </div>
+                    
+                    <p class="attack-detail">The most concerning finding was that attacks using legitimate tools with legitimate credentials were extremely difficult to detect and mitigate using conventional security controls.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-shield-alt"></i> Defense Analysis</h2>
+                <div class="content-box">
+                    <p>Our research evaluated the effectiveness of various security controls based on the IEC 62443 standard:</p>
+                    
+                    <div class="two-columns">
+                        <div class="column">
+                            <h3>Deployed Security Controls:</h3>
+                            <ul>
+                                <li><strong>Network segmentation</strong> (Purdue Model implementation)</li>
+                                <li><strong>Access control</strong> (role-based)</li>
+                                <li><strong>Protocol filtering</strong> (deep packet inspection)</li>
+                                <li><strong>Behavioral monitoring</strong></li>
+                                <li><strong>Integrity monitoring</strong></li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h3>Control Effectiveness:</h3>
+                            <ul>
+                                <li>Behavioral monitoring: 81% (24% false positives)</li>
+                                <li>Network segmentation: 76% (9% false positives)</li>
+                                <li>Protocol filtering: 63% (15% false positives)</li>
+                                <li>Integrity checking: 59% (7% false positives)</li>
+                                <li>Access control: 41% (3% false positives)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p class="definition">Even with multiple controls implemented in a defense-in-depth approach, the maximum achieved protection was 85%, with significant gaps in detecting LOLBin-based attacks.</p>
+                    
+                    <p class="attack-overview">The research identified critical gaps in standard security controls when dealing with attacks that leverage legitimate tools with legitimate credentials, highlighting the need for enhanced behavioral analytics and context-aware authentication.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-search"></i> Key Findings</h2>
+                <div class="content-box">
+                    <p>Our research has yielded several significant findings:</p>
+                    
+                    <ul>
+                        <li><strong>High Success Rate</strong>: LOLBin-based attacks achieved 92% success with only 37% detection</li>
+                        <li><strong>Defense Bypass</strong>: Traditional security controls largely ineffective against legitimate tools being used maliciously</li>
+                        <li><strong>Protocol Vulnerabilities</strong>: Industrial protocols remain highly susceptible to manipulation</li>
+                        <li><strong>Security Control Gaps</strong>: Significant weaknesses in conventional ICS security practices</li>
+                    </ul>
+                    
+                    <blockquote>
+                        The simulation demonstrates that LOLBin techniques can effectively evade traditional security controls while achieving significant impacts on industrial processes.
+                    </blockquote>
+                    
+                    <p>Our recommendations for improving ICS security include:</p>
+                    <ul>
+                        <li>Implementation of comprehensive behavioral profiling</li>
+                        <li>Context-aware authentication and authorization</li>
+                        <li>Process value verification against operational limits</li>
+                        <li>Tool usage auditing and anomaly detection</li>
+                        <li>Protocol command validation based on operational context</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-lightbulb"></i> Contributions & Future Work</h2>
+                <div class="content-box">
+                    <div class="two-columns">
+                        <div class="column">
+                            <h3>Major Contributions:</h3>
+                            <ul>
+                                <li>Comprehensive LOLBin classification framework for ICS</li>
+                                <li>Complete simulation environment for educational purposes</li>
+                                <li>Quantification of security control effectiveness</li>
+                                <li>Novel defensive strategies for ICS environments</li>
+                                <li>Practical recommendations for enhancing ICS security</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h3>Future Work:</h3>
+                            <ul>
+                                <li>Expanded protocol coverage (Profinet, EtherCAT)</li>
+                                <li>Machine learning detection of anomalous tool usage</li>
+                                <li>Safety system integration and testing</li>
+                                <li>Supply chain attack simulation</li>
+                                <li>Cloud-based ICS security implications</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p class="definition">This research serves as a valuable resource for security practitioners, critical infrastructure operators, and policymakers working to enhance the security posture of industrial control systems against evolving cyber threats.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <div class="title-content">
+                    <h1>Thank You</h1>
+                    <p class="subtitle">Questions?</p>
+                    <div class="title-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="wave-animation.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Document loaded and ready");
+            
+            // Fix the 7th slide stats display issue
+            const statValues = document.querySelectorAll('.stat-value');
+            statValues.forEach(function(element) {
+                const text = element.innerHTML;
+                if (text.includes('</')) {
+                    element.innerHTML = text.split('<')[0];
+                    console.log('Fixed a stat value');
+                }
+            });
+            
+            // Get all slides and set up navigation
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prev');
+            const nextBtn = document.getElementById('next');
+            const progressBar = document.querySelector('.progress-bar');
+            
+            console.log(`Found ${slides.length} slides`);
+            
+            let currentSlideIndex = 0;
+            
+            // Explicitly set initial slide states
+            slides.forEach((slide, index) => {
+                slide.style.position = 'absolute';
+                slide.style.transition = 'opacity 0.5s ease';
+                
+                if (index === 0) {
+                    slide.classList.add('active');
+                    slide.style.opacity = '1';
+                    slide.style.zIndex = '1';
+                    slide.style.pointerEvents = 'auto';
+                } else {
+                    slide.classList.remove('active');
+                    slide.style.opacity = '0';
+                    slide.style.zIndex = '-1';
+                    slide.style.pointerEvents = 'none';
+                }
+                
+                // Add HUD displays to slides that don't have them
+                if (!slide.querySelector('.hud-display') && !slide.id.includes('title-slide')) {
+                    const hudDisplay = document.createElement('div');
+                    hudDisplay.className = 'hud-display';
+                    hudDisplay.innerHTML = `
+                        <div class="hud-status"><span class="hud-icon"></span>SECTION ${index}</div>
+                        <div class="hud-time">ICS SECURITY</div>
+                    `;
+                    slide.querySelector('.slide-content').appendChild(hudDisplay);
+                }
+            });
+            
+            function updateProgress() {
+                const progress = (currentSlideIndex / (slides.length - 1)) * 100;
+                progressBar.style.width = progress + '%';
+                console.log(`Progress: ${progress}%`);
+            }
+            
+            function showSlide(n) {
+                console.log(`Attempting to show slide ${n}`);
+                
+                // Hide all slides
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                    slide.style.opacity = '0';
+                    slide.style.zIndex = '-1';
+                    slide.style.pointerEvents = 'none';
+                });
+                
+                // Set current slide index
+                if (n < 0) {
+                    currentSlideIndex = 0;
+                } else if (n >= slides.length) {
+                    currentSlideIndex = slides.length - 1;
+                } else {
+                    currentSlideIndex = n;
+                }
+                
+                console.log(`Now showing slide ${currentSlideIndex}`);
+                
+                // Show current slide
+                slides[currentSlideIndex].classList.add('active');
+                slides[currentSlideIndex].style.opacity = '1';
+                slides[currentSlideIndex].style.zIndex = '1';
+                slides[currentSlideIndex].style.pointerEvents = 'auto';
+                
+                updateProgress();
+            }
+            
+            // Event listeners for buttons
+            prevBtn.addEventListener('click', function() {
+                console.log('Previous button clicked');
+                showSlide(currentSlideIndex - 1);
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                console.log('Next button clicked');
+                showSlide(currentSlideIndex + 1);
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft') {
+                    console.log('Left arrow pressed');
+                    showSlide(currentSlideIndex - 1);
+                } else if (e.key === 'ArrowRight') {
+                    console.log('Right arrow pressed');
+                    showSlide(currentSlideIndex + 1);
+                }
+            });
+            
+            // Initialize progress bar
+            updateProgress();
+            
+            // Animation effects
+            function animateElements() {
+                const currentElements = slides[currentSlideIndex].querySelectorAll('h1, h2, p, ul, ol, .content-box');
+                currentElements.forEach((element, index) => {
+                    element.style.opacity = '0';
+                    element.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }, 100 * index);
+                });
+            }
+            
+            // Add animation when slides change
+            const observerConfig = { attributes: true, attributeFilter: ['class'] };
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'attributes' && 
+                        mutation.attributeName === 'class' && 
+                        mutation.target.classList.contains('active')) {
+                        animateElements();
+                    }
+                });
+            });
+            
+            slides.forEach(slide => {
+                observer.observe(slide, observerConfig);
+            });
+            
+            // Initialize first slide animations
+            setTimeout(animateElements, 500);
+        });
+    </script>
+</body>
+</html>

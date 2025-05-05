@@ -1,0 +1,510 @@
+/* Industrial Control Systems Theme - Vibrant Blue/Purple Theme */
+:root {
+    --ics-primary: #4361ee;    /* Vibrant blue */
+    --ics-secondary: #7209b7;  /* Rich purple */
+    --ics-accent: #00b4d8;    /* Bright cyan/blue */
+    --ics-highlight: #f72585; /* Vibrant pink for highlights */
+    --ics-dark: #0a1128;      /* Dark blue-black */
+    --ics-gray: #7f8c8d;      /* Standard gray */
+    --ics-light: #ecf0f1;     /* Light gray/white */
+}
+
+/* Industrial background */
+body.ics-theme {
+    background-color: #0a1128;
+    background-image: linear-gradient(rgba(10, 17, 40, 0.85), rgba(10, 17, 40, 0.85)),
+        url('https://images.unsplash.com/photo-1510511233900-1982d92bd835?ixlib=rb-4.0.3&auto=format&fit=crop');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* Background styling */
+body {
+    background-color: #10123b;  /* Dark blue-purple base */
+    background-image: 
+        linear-gradient(135deg, rgba(16, 18, 59, 0.97), rgba(54, 40, 110, 0.97)),
+        url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+}
+
+/* Pattern overlay for depth */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%234361ee' fill-opacity='0.08' d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z'%3E%3C/path%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%237209b7' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    z-index: -1;
+    opacity: 0.15;
+}
+
+/* Circuit board pattern in background */
+.circuit-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.05;
+    z-index: -1;
+    background-size: 30px 30px;
+    background-image:
+        linear-gradient(to right, rgba(67, 97, 238, 0.5) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(67, 97, 238, 0.5) 1px, transparent 1px);
+}
+
+/* Slide styling */
+.slide-content {
+    background: rgba(10, 17, 40, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(67, 97, 238, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(114, 9, 183, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slide-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent, rgba(67, 97, 238, 0.05), transparent);
+    z-index: -1;
+}
+
+/* Headings */
+.title-icon {
+    color: var(--ics-highlight);
+    text-shadow: 0 0 10px rgba(247, 37, 133, 0.5);
+}
+
+h2 i {
+    color: var(--ics-accent);
+}
+
+h1::after, h2::after {
+    background: var(--ics-primary);
+    background: linear-gradient(90deg, var(--ics-primary), transparent);
+}
+
+h1, h2, h3 {
+    color: #fff;
+}
+
+/* Content elements */
+.content-box {
+    border-left: 5px solid var(--ics-primary);
+    background: rgba(10, 17, 40, 0.6);
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.progress-bar {
+    background: linear-gradient(to right, var(--ics-primary), var(--ics-highlight));
+    box-shadow: 0 0 10px rgba(67, 97, 238, 0.5);
+}
+
+/* Project image placeholders */
+.project-image-container {
+    width: 100%;
+    height: 300px;
+    background-color: rgba(10, 17, 40, 0.8);
+    background-image: 
+        linear-gradient(45deg, rgba(10, 17, 40, 0.9) 25%, transparent 25%), 
+        linear-gradient(-45deg, rgba(10, 17, 40, 0.9) 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, rgba(10, 17, 40, 0.9) 75%), 
+        linear-gradient(-45deg, transparent 75%, rgba(10, 17, 40, 0.9) 75%);
+    background-size: 20px 20px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px dashed rgba(0, 180, 216, 0.5);
+    position: relative;
+    overflow: hidden;
+    animation: gridMove 60s linear infinite;
+}
+
+@keyframes gridMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 40px 40px; }
+}
+
+.project-image-container p {
+    color: var(--ics-accent);
+    font-style: italic;
+    font-family: 'Source Code Pro', monospace;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    animation: pulse 2s infinite;
+}
+
+/* Industrial design elements */
+.industrial-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(67, 97, 238, 0.3);
+    position: relative;
+    color: var(--ics-accent);
+}
+
+.industrial-header:before, .industrial-header:after {
+    content: '⚠';
+    font-size: 1.5rem;
+    color: var(--ics-highlight);
+    margin: 0 15px;
+}
+
+.internet-image {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 8px;
+    margin: 15px 0;
+    border: 2px solid rgba(67, 97, 238, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.internet-image:hover {
+    transform: scale(1.02);
+}
+
+/* Methodology grid */
+.methodology-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.methodology-item {
+    background: rgba(10, 17, 40, 0.5);
+    border-left: 3px solid var(--ics-accent);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.methodology-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.methodology-item h4 {
+    color: var(--ics-accent);
+    margin-bottom: 10px;
+}
+
+/* Statistics display */
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    background: rgba(10, 17, 40, 0.5);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--ics-accent);
+    text-shadow: 0 0 10px rgba(0, 180, 216, 0.3);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--ics-light);
+}
+
+/* Text styling */
+strong {
+    color: var(--ics-accent);
+}
+
+blockquote {
+    border-left: 4px solid var(--ics-highlight);
+    background: rgba(114, 9, 183, 0.1);
+}
+
+.definition {
+    background-color: rgba(67, 97, 238, 0.1);
+    border-left: 3px solid var(--ics-secondary);
+}
+
+.attack-detail, .process-challenge, .device-info, .attack-overview {
+    border-left: 3px solid var(--ics-highlight);
+    background-color: rgba(247, 37, 133, 0.1);
+}
+
+/* Warning elements */
+.industrial-warning {
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(247, 37, 133, 0.15),
+        rgba(247, 37, 133, 0.15) 10px,
+        rgba(10, 17, 40, 0.3) 10px,
+        rgba(10, 17, 40, 0.3) 20px
+    );
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.industrial-warning i {
+    font-size: 2rem;
+    color: var(--ics-highlight);
+    margin-right: 15px;
+    margin-left: 10px;
+}
+
+/* Navigation controls */
+.controls {
+    background: rgba(10, 17, 40, 0.8);
+    border: 1px solid rgba(67, 97, 238, 0.3);
+}
+
+/* Title slide */
+.title-slide .slide-content {
+    background: rgba(10, 17, 40, 0.7);
+    background-image: 
+        linear-gradient(rgba(10, 17, 40, 0.7), rgba(10, 17, 40, 0.8)), 
+        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.title-slide .slide-content:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            rgba(0, 180, 216, 0.05),
+            rgba(0, 180, 216, 0.05) 10px,
+            transparent 10px,
+            transparent 20px
+        );
+    z-index: -1;
+}
+
+/* HUD-like elements */
+.hud-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: 'Source Code Pro', monospace;
+    color: var(--ics-primary);
+    font-size: 0.8rem;
+    text-align: right;
+    opacity: 0.7;
+}
+
+.hud-element {
+    margin-bottom: 5px;
+}
+
+.hud-element:before {
+    content: '[';
+}
+
+.hud-element:after {
+    content: ']';
+}
+
+/* HUD elements */
+.hud-display {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: 'Source Code Pro', monospace;
+    color: var(--ics-accent);
+    font-size: 0.8rem;
+    opacity: 0.8;
+    text-align: right;
+    z-index: 5;
+    text-shadow: 0 0 5px rgba(0, 180, 216, 0.5);
+}
+
+.hud-status:before {
+    content: '[SECURE] ';
+}
+
+.hud-icon {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--ics-accent);
+    border-radius: 50%;
+    margin-right: 5px;
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Industrial component visuals */
+.industrial-meter {
+    height: 20px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    margin: 10px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.industrial-meter-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--ics-primary), var(--ics-accent));
+    width: 70%;
+    border-radius: 10px;
+}
+
+.industrial-meter-markers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.industrial-meter-marker {
+    width: 1px;
+    height: 100%;
+    background: rgba(255,255,255,0.3);
+}
+
+/* Technical code sections */
+.code-snippet {
+    background: #1a1a1a;
+    border-left: 3px solid var(--ics-accent);
+    padding: 15px;
+    margin: 15px 0;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.9rem;
+    overflow-x: auto;
+    border-radius: 5px;
+}
+
+.code-snippet pre {
+    margin: 0;
+}
+
+/* Circuit board design elements */
+.circuit-pattern {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 100px;
+    height: 100px;
+    opacity: 0.2;
+    background-image: 
+        linear-gradient(rgba(231, 76, 60, 0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(231, 76, 60, 0.5) 1px, transparent 1px),
+        linear-gradient(rgba(52, 152, 219, 0.3) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(52, 152, 219, 0.3) 2px, transparent 2px);
+    background-size: 10px 10px, 10px 10px, 50px 50px, 50px 50px;
+}
+
+/* Slide transition enhancements */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+    padding: 40px;
+    opacity: 0;
+    z-index: -1; /* Ensure inactive slides are below active ones */
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+    pointer-events: auto;
+}
+
+.slide-content {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slide.active .slide-content {
+    transform: translateY(0) scale(1);
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(230, 74, 25, 0.3);
+}
+
+.slide:not(.active) .slide-content {
+    transform: translateY(30px) scale(0.98);
+}
+
+/* Nav buttons */
+.nav-btn {
+    color: var(--ics-accent);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-btn:hover {
+    color: var(--ics-highlight);
+    transform: scale(1.2);
+}
+
+/* Add subtle glow effects */
+.slide-content {
+    position: relative;
+}
+
+.slide-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 30px rgba(67, 97, 238, 0.1);
+    pointer-events: none;
+    border-radius: 15px;
+}

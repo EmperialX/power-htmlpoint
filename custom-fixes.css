@@ -1,0 +1,154 @@
+/* Custom fixes for alignment issues */
+
+/* Fix for two-columns layout */
+.two-columns {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    align-items: flex-start;
+    flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+.column {
+    flex: 1;
+    min-width: 0; /* Prevent overflow */
+    padding: 10px;
+}
+
+/* Ensure consistent spacing in lists */
+ul, ol {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Make images responsive and properly centered */
+.internet-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Better alignment for content boxes */
+.content-box {
+    padding: 25px;
+    overflow-y: auto;
+    max-height: 65vh;
+}
+
+/* Fix vertical alignment in methodology grid */
+.methodology-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+    align-items: stretch;
+}
+
+.methodology-item {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.methodology-item h4 {
+    margin-top: 0;
+}
+
+/* Fix alignment in stat containers */
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    padding: 10px;
+    min-width: 150px;
+    text-align: center;
+}
+
+/* Ensure consistent heading alignment */
+h2, h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin-bottom: 15px;
+}
+
+/* Fix vertical spacing for paragraphs */
+p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Ensure slide content is properly centered */
+.slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-content {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+/* Fix for title slide content */
+.title-content {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Ensure consistent spacing in blockquotes */
+blockquote {
+    margin: 20px 0;
+    padding: 10px 20px;
+}
+
+/* Fix for definition boxes */
+.definition, .attack-detail, .attack-overview {
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Fix for spacing in industrial warning */
+.industrial-warning {
+    align-items: center;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.industrial-warning i {
+    margin-right: 15px;
+}
+
+/* Fix HUD display positioning */
+.hud-display {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+/* Fix for ICS Kill Chain slide */
+#kill-chain-slide .two-columns {
+    display: flex;
+    flex-direction: row;
+}
+
+#kill-chain-slide .two-columns .column {
+    flex: 1;
+}
