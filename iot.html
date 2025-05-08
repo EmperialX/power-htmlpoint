@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Forensics Presentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="controls">
+            <button id="prev" class="nav-btn"><i class="fas fa-chevron-left"></i></button>
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+            <button id="next" class="nav-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <div class="slide active" id="title-slide">
+            <div class="slide-content">
+                <div class="title-content">
+                    <div class="title-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h1>IoT Forensics</h1>
+                    <p class="subtitle">Digital Investigation in the Internet of Things</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-bullseye"></i> Learning Objectives</h2>
+                <div class="content-box">
+                    <p>After completing this module, you should be able to:</p>
+                    <ul>
+                        <li>Understand IoT and IoT security problems</li>
+                        <li>Recognize different types of IoT threats</li>
+                        <li>Understand IoT forensics</li>
+                        <li>Perform forensics on IoT devices</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-lock"></i> Understanding IoT and Security Problems</h2>
+                <div class="content-box">
+                    <p>IoT devices use sensors to transmit and receive data over the Internet and can sync with various devices. Due to the lack of regular security updates, these devices are highly vulnerable to malware attacks, allowing attackers to turn them into <strong>botnets</strong> for launching cyberattacks.</p>
+                    <p class="definition">IoT devices often lack proper authentication, use default credentials, and lack strong encryption or key management systems, making them vulnerable to various types of attacks.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-wifi"></i> What is IoT?</h2>
+                <div class="content-box">
+                    <p>IoT, or <strong>Internet of Everything (IoE)</strong>, refers to web-enabled computing devices that can sense, collect, and send data using embedded sensors, communication hardware, and processors.</p>
+                    <blockquote>
+                        An IoT "thing" is a device implanted on natural, man-made, or machine-made objects with network communication functionality.
+                    </blockquote>
+                    <p>IoT uses existing and emerging technologies for sensing, networking, and robotics, enabling deeper analysis, automation, and integration. Key features include:</p>
+                    <ul class="feature-list">
+                        <li>Connectivity</li>
+                        <li>Sensors and actuators</li>
+                        <li>Artificial intelligence</li>
+                        <li>Small, embedded devices</li>
+                        <li>Active engagement with environment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-layer-group"></i> IoT Architecture</h2>
+                <div class="content-box">
+                    <p>The IoT architecture comprises several layers:</p>
+                    <ul>
+                        <li><strong>Edge Technology Layer</strong>: Includes hardware like sensors and RFID tags for data collection.</li>
+                        <li><strong>Access Gateway Layer</strong>: Bridges the gap between devices and clients, handling message routing and identification.</li>
+                        <li><strong>Internet Layer</strong>: Enables communication between devices, clouds, and local gateway services.</li>
+                        <li><strong>Middleware Layer</strong>: Acts as an interface between the application and hardware layers, managing data and devices.</li>
+                        <li><strong>Application Layer</strong>: Delivers services to users in sectors like building, industry, and healthcare.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-exclamation-triangle"></i> IoT Security Problems</h2>
+                <div class="content-box">
+                    <p>IoT devices often lack proper authentication, use default credentials, and lack strong encryption or key management systems. Key areas of vulnerability include:</p>
+                    <ul>
+                        <li><strong>Application</strong>: Input validation, authentication, authorization, lack of automatic security updates, and default passwords.</li>
+                        <li><strong>Network</strong>: Firewall issues, improper encryption, and lack of automatic updates.</li>
+                        <li><strong>Mobile</strong>: Insecure APIs, lack of communication channel encryption, and lack of storage security.</li>
+                        <li><strong>Cloud</strong>: Improper authentication and lack of encryption for storage and communications.</li>
+                    </ul>
+                    <div class="security-equation">
+                        <p>The security equation: <strong>Application + Network + Mobile + Cloud = IoT</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-bug"></i> OWASP Top 10 IoT Vulnerabilities</h2>
+                <div class="content-box">
+                    <div class="two-columns">
+                        <div class="column">
+                            <ol>
+                                <li>Weak, Guessable or Hardcoded Passwords</li>
+                                <li>Insecure Network Services</li>
+                                <li>Insecure Ecosystem Interfaces</li>
+                                <li>Lack of Secure Update Mechanism</li>
+                                <li>Insecure/Outdated Components</li>
+                            </ol>
+                        </div>
+                        <div class="column">
+                            <ol start="6">
+                                <li>Insufficient Privacy Protection</li>
+                                <li>Insecure Data Transfer and Storage</li>
+                                <li>Lack of Device Management</li>
+                                <li>Insecure Default Settings</li>
+                                <li>Lack of Physical Hardening</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-skull-crossbones"></i> IoT Attack Surface Areas</h2>
+                <div class="content-box">
+                    <div class="two-columns">
+                        <div class="column">
+                            <ul>
+                                <li>Device Memory</li>
+                                <li>Ecosystem Access Control</li>
+                                <li>Device Physical Interfaces</li>
+                                <li>Device Web Interface</li>
+                                <li>Device Firmware</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <ul>
+                                <li>Device Network Services</li>
+                                <li>Administrative Interface</li>
+                                <li>Local Data Storage</li>
+                                <li>Cloud Web Interface</li>
+                                <li>Update Mechanism</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-bomb"></i> Recognizing Different Types of IoT Threats</h2>
+                <div class="content-box">
+                    <p>IoT threats such as <strong>distributed denial-of-service (DDoS) attacks</strong>, <strong>man-in-the-middle attacks</strong>, and <strong>ransomware attacks</strong> can compromise devices and steal sensitive data from users as well as organizations.</p>
+                    <p class="attack-overview">IoT devices on the Internet have very few security protection mechanisms against various emerging threats. Attackers often exploit these poorly protected devices to cause physical damage to the network, wiretap communication, or launch disruptive attacks.</p>
+                    <div class="threat-types">
+                        <div class="threat">
+                            <i class="fas fa-server"></i>
+                            <span>DDoS Attack</span>
+                        </div>
+                        <div class="threat">
+                            <i class="fas fa-temperature-high"></i>
+                            <span>HVAC Attacks</span>
+                        </div>
+                        <div class="threat">
+                            <i class="fas fa-car"></i>
+                            <span>Rolling Code</span>
+                        </div>
+                        <div class="threat">
+                            <i class="fab fa-bluetooth"></i>
+                            <span>BlueBorne</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-server"></i> DDoS Attack</h2>
+                <div class="content-box">
+                    <blockquote>
+                        A DDoS attack involves multiple infected systems overwhelming a single online system or service, making it slow or unavailable to legitimate users.
+                    </blockquote>
+                    <p>Steps of a DDoS attack:</p>
+                    <ol>
+                        <li>Attacker gains remote access to vulnerable devices</li>
+                        <li>Malware is injected into IoT devices to turn them into botnets</li>
+                        <li>A command-and-control center is used to instruct botnets to send requests to the target server</li>
+                        <li>The target server goes offline, becoming unavailable</li>
+                    </ol>
+                    <p class="attack-detail">In late 2017, the Satori botnet infected over 260,000 home routers within just 12 hours by exploiting default usernames and passwords in D-Link DSL routers.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-temperature-high"></i> Attack on HVAC Systems</h2>
+                <div class="content-box">
+                    <blockquote>
+                        Attackers exploit vulnerabilities in IoT-enabled heating, ventilation, and air conditioning (HVAC) systems to steal login credentials and gain unauthorized access to networks.
+                    </blockquote>
+                    <p>Steps to exploit HVAC systems:</p>
+                    <ol>
+                        <li>Attackers search for vulnerable ICS systems using tools like Shodan</li>
+                        <li>Attackers attempt to use default user credentials with online tools</li>
+                        <li>Remote access to the HVAC system is attempted through the ICS system</li>
+                        <li>Once accessed, the attacker can control the temperature or launch further attacks on the local network</li>
+                    </ol>
+                    <p class="attack-detail">Tools used by attackers include Shodan (https://www.shodan.io) to search for vulnerable systems and online default credential databases (https://madifi.de/defpass/index.php).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-search"></i> IoT Forensics</h2>
+                <div class="content-box">
+                    <p>IoT forensics involves the investigation of IoT devices and their connected devices. Investigators need to understand forensic tools, data acquisition, and examination procedures.</p>
+                    <p class="definition">IoT forensics is a multidisciplinary approach within digital forensics that addresses cybersecurity threats targeting IoT devices, focusing on the identification, acquisition, and analysis of digital evidence from IoT devices, sensors, and nodes.</p>
+                    <p>To conduct a forensic investigation, investigators should consider technological aspects across three zones:</p>
+                    <ul>
+                        <li><strong>IoT Zone:</strong> The devices and their embedded software</li>
+                        <li><strong>Network Zone:</strong> Communication protocols and traffic</li>
+                        <li><strong>Cloud Zone:</strong> Data stored and processed in cloud services</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-tasks"></i> IoT Forensics Process</h2>
+                <div class="content-box">
+                    <p>The IoT forensic process involves several key steps:</p>
+                    <ul>
+                        <li><strong>Evidence Identification and Collection</strong>: Identifying affected IoT devices at the crime scene to increase the scope of the investigation</li>
+                        <li><strong>Preservation</strong>: Ensuring the evidence is properly preserved, which may involve avoiding switching off the device before data acquisition</li>
+                        <li><strong>Data Analysis</strong>: Analyzing data stored on cloud services or mobile phones synced with IoT devices</li>
+                        <li><strong>Presentation and Reporting</strong>: Preparing a report on the evidence and forensic analysis</li>
+                    </ul>
+                    <p class="process-challenge">Key challenges include device identification due to their autonomous nature, ensuring evidence integrity, determining if malfunctions are due to human intervention or design flaws, and proper documentation of findings.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-watch"></i> Performing Forensics: Android Wear</h2>
+                <div class="content-box">
+                    <p>Smartwatches connect to smartphones or networks via Bluetooth, Wi-Fi, GPS, and NFC, primarily for tracking exercises, checking time, messages, and emails.</p>
+                    <p class="device-info">Network connections include NFC for short-range wireless connections, Bluetooth for pairing with other devices, Wi-Fi for wireless networking, and GPS for location tracking. Hackers can exploit motion sensors and GPS systems to gather sensitive user information, such as PINs, passwords, and physical location.</p>
+                    <div class="two-columns">
+                        <div class="column">
+                            <h3>Logical Acquisition:</h3>
+                            <ol>
+                                <li>Enable developer options</li>
+                                <li>Connect to Wi-Fi</li>
+                                <li>Enable Wi-Fi debugging</li>
+                                <li>Obtain IP address</li>
+                                <li>Use ADB to pull data</li>
+                            </ol>
+                        </div>
+                        <div class="column">
+                            <h3>Physical Acquisition:</h3>
+                            <ol>
+                                <li>Establish connection with SDK tools</li>
+                                <li>Execute ADB commands</li>
+                                <li>Verify connection</li>
+                                <li>Generate partition image</li>
+                                <li>Requires rooted device</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-microphone-alt"></i> Performing Forensics: Amazon Echo</h2>
+                <div class="content-box">
+                    <p>Amazon Echo is a smart speaker and intelligent home assistant controlled via voice commands. The investigation involves:</p>
+                    <p class="device-info">Alexa Voice Service manages voice commands and connected IoT devices through cloud services. Understanding the Alexa Voice Service's native artifacts and communication protocols is crucial for forensic investigations.</p>
+                    <div class="two-columns">
+                        <div class="column">
+                            <h3>Client-based Analysis:</h3>
+                            <ul>
+                                <li>Retrieve database files</li>
+                                <li>Examine map_data_storage_v2.db</li>
+                                <li>Analyze DataStore.db</li>
+                                <li>Inspect WebView cache files</li>
+                            </ul>
+                            <p class="path-info">Key directory: /data/data/com.amazon.dee.app/</p>
+                        </div>
+                        <div class="column">
+                            <h3>Cloud-based Analysis:</h3>
+                            <ul>
+                                <li>Parse SQLite to get user ID</li>
+                                <li>Build URL using User ID</li>
+                                <li>Append Amazon Alexa APIs</li>
+                                <li>Extract cloud data</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-microchip"></i> Hardware Level Analysis</h2>
+                <div class="content-box">
+                    <p>When software-level access to a device's physical contents is difficult, hardware-level acquisition methods can be used:</p>
+                    <div class="two-columns">
+                        <div class="column">
+                            <h3>JTAG Forensics:</h3>
+                            <p>Allows access to the physical contents of devices to acquire a physical image of the device's memory chip.</p>
+                            <p class="definition">JTAG (Joint Test Action Group) method provides access to test ports on electronic devices to extract data at the hardware level.</p>
+                            <p>Tools required:</p>
+                            <ul>
+                                <li>Equipment to dismantle the device</li>
+                                <li>Wiring and soldering equipment</li>
+                                <li>JTAG software and hardware</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h3>Chip-Off Forensics:</h3>
+                            <p>Involves carefully extracting the memory chip from the device's motherboard to read it with chip-reading equipment.</p>
+                            <p class="definition">This is a destructive method that may result in data loss, and the removed memory chip cannot be re-fixed for reuse.</p>
+                            <p>Equipment needed:</p>
+                            <ul>
+                                <li>Memory chip reading hardware</li>
+                                <li>Adapter to hold the chip</li>
+                                <li>Forensic workstation software</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <h2><i class="fas fa-lightbulb"></i> Module Summary</h2>
+                <div class="content-box">
+                    <blockquote>
+                        <strong>Internet of Things (IoT):</strong> Refers to physical devices embedded with sensors, software, and other technologies to collect and share data with connected devices and systems via the internet.
+                    </blockquote>
+                    <p>IoT devices are increasingly common and are vulnerable to cyber attacks. Common threats include:</p>
+                    <ul>
+                        <li>DDoS attacks - Multiple infected systems overwhelming a target</li>
+                        <li>Rolling Code attacks - Targeting smart locking systems in vehicles</li>
+                        <li>BlueBorne attacks - Exploiting Bluetooth connections</li>
+                        <li>Jamming attacks - Disrupting wireless communications</li>
+                        <li>Ransomware attacks - Encrypting user data for ransom</li>
+                        <li>Attacks using backdoors - Gaining unauthorized access</li>
+                    </ul>
+                    <p>Forensic investigators should understand device technologies, acquisition procedures, and examination tools. In cases where the device is damaged or data acquisition through software is not possible, JTAG and Chip-off forensics can be used to acquire a physical image of the device.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-content">
+                <div class="title-content">
+                    <h1>Thank You</h1>
+                    <p class="subtitle">Questions?</p>
+                    <div class="title-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
