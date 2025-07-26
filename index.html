@@ -3,196 +3,625 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PowerHTMLPoint Presentations</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <title>Youth Internet Governance Forum - Human-Centric Digital Future</title>
     <style>
-        :root {
-            --primary: #4361ee;
-            --secondary: #7209b7;
-            --accent: #00b4d8;
-            --highlight: #f72585;
-            --dark: #0a1128;
-            --light: #ecf0f1;
-        }
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--dark);
-            background-image: 
-                linear-gradient(135deg, rgba(16, 18, 59, 0.97), rgba(54, 40, 110, 0.97)),
-                url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
-            background-size: cover;
-            background-attachment: fixed;
+        * {
             margin: 0;
             padding: 0;
-            color: var(--light);
+            box-sizing: border-box;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        h1 {
-            font-size: 3rem;
-            color: #fff;
-            margin-bottom: 10px;
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            background: radial-gradient(ellipse at center, 
+                #0a0a23 0%, 
+                #1a1a3e 30%, 
+                #2d1b69 60%, 
+                #000000 100%);
             position: relative;
-            display: inline-block;
         }
-        
-        h1::after {
-            content: '';
+
+        .universe {
             position: absolute;
-            bottom: -10px;
+            top: 0;
             left: 0;
-            height: 5px;
             width: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--highlight));
-            border-radius: 5px;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--accent);
-            font-weight: 300;
-        }
-        
-        .presentations {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .presentation-card {
-            background: rgba(10, 17, 40, 0.7);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(67, 97, 238, 0.3);
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.5),
-                0 0 20px rgba(114, 9, 183, 0.2);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .presentation-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 
-                0 12px 40px rgba(0, 0, 0, 0.6),
-                0 0 30px rgba(114, 9, 183, 0.3);
-        }
-        
-        .card-image {
-            height: 200px;
-            position: relative;
+            height: 100%;
             overflow: hidden;
         }
-        
-        .card-image.iot {
-            background-image: linear-gradient(rgba(10, 17, 40, 0.5), rgba(10, 17, 40, 0.5)), 
-                url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
+
+        /* Starfield Effect */
+        .starfield {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
         }
-        
-        .card-image.binary {
-            background-image: linear-gradient(rgba(10, 17, 40, 0.5), rgba(10, 17, 40, 0.5)), 
-                url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2091&q=80');
-            background-size: cover;
-            background-position: center;
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s ease-in-out infinite alternate;
         }
-        
-        .card-content {
-            padding: 25px;
+
+        .star.small {
+            width: 1px;
+            height: 1px;
+            opacity: 0.8;
         }
-        
-        h3 {
-            margin-top: 0;
-            color: var(--accent);
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+
+        .star.medium {
+            width: 2px;
+            height: 2px;
+            opacity: 0.9;
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
         }
-        
-        p {
-            color: var(--light);
-            margin-bottom: 25px;
+
+        .star.large {
+            width: 3px;
+            height: 3px;
+            opacity: 1;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 1);
         }
-        
-        .view-btn {
-            display: inline-block;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 10px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+
+        /* Light Speed Effect */
+        .hyperspace {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
         }
-        
-        .view-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(67, 97, 238, 0.5);
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 80px;
-            color: var(--light);
+
+        .light-beam {
+            position: absolute;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(0, 162, 255, 0.8) 50%, 
+                transparent 100%);
+            height: 1px;
+            animation: light-speed 3s linear infinite;
             opacity: 0.7;
         }
-        
-        .github-link {
-            color: var(--accent);
-            text-decoration: none;
+
+        .light-beam.cyan {
+            background: linear-gradient(90deg, transparent 0%, rgba(0, 255, 255, 0.8) 50%, transparent 100%);
         }
-        
-        .github-link:hover {
-            text-decoration: underline;
+
+        .light-beam.purple {
+            background: linear-gradient(90deg, transparent 0%, rgba(147, 51, 234, 0.8) 50%, transparent 100%);
+        }
+
+        .light-beam.green {
+            background: linear-gradient(90deg, transparent 0%, rgba(34, 197, 94, 0.8) 50%, transparent 100%);
+        }
+
+        /* Rotating Earth */
+        .earth-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            z-index: 5;
+        }
+
+        .earth {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, 
+                #1e3a8a 0%, 
+                #3b82f6 25%, 
+                #22c55e 50%, 
+                #059669 75%, 
+                #1e40af 100%);
+            position: relative;
+            animation: earth-rotate 20s linear infinite;
+            box-shadow: 
+                inset -50px -50px 100px rgba(0, 0, 0, 0.5),
+                0 0 100px rgba(59, 130, 246, 0.3),
+                0 0 200px rgba(34, 197, 94, 0.2);
+        }
+
+        .earth::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cpath d='M50,100 Q100,80 150,100 T250,120 T350,100' stroke='rgba(34,197,94,0.6)' stroke-width='2' fill='none'/%3E%3Cpath d='M30,200 Q80,180 130,200 T230,220 T330,200' stroke='rgba(34,197,94,0.5)' stroke-width='1.5' fill='none'/%3E%3Cpath d='M40,300 Q90,280 140,300 T240,320 T340,300' stroke='rgba(34,197,94,0.4)' stroke-width='1' fill='none'/%3E%3Ccircle cx='80' cy='120' r='15' fill='rgba(34,197,94,0.7)'/%3E%3Ccircle cx='180' cy='180' r='20' fill='rgba(34,197,94,0.6)'/%3E%3Ccircle cx='280' cy='250' r='12' fill='rgba(34,197,94,0.8)'/%3E%3Ccircle cx='320' cy='150' r='18' fill='rgba(34,197,94,0.5)'/%3E%3C/svg%3E");
+            animation: earth-surface 25s linear infinite reverse;
+        }
+
+        .earth::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: calc(100% + 40px);
+            height: calc(100% + 40px);
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                transparent 50%);
+            animation: earth-atmosphere 15s ease-in-out infinite;
+        }
+
+        /* Global Network */
+        .network-grid {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            z-index: 4;
+        }
+
+        .orbit-ring {
+            position: absolute;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 50%;
+            animation: orbit-rotation 30s linear infinite;
+        }
+
+        .orbit-ring:nth-child(1) {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .orbit-ring:nth-child(2) {
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+            animation-duration: 25s;
+            animation-direction: reverse;
+        }
+
+        .orbit-ring:nth-child(3) {
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+            animation-duration: 35s;
+        }
+
+        .data-node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(45deg, #00ff88, #0099ff);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);
+            animation: node-pulse 3s ease-in-out infinite;
+        }
+
+        /* Youth Figures */
+        .youth-collective {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 30px;
+            z-index: 10;
+        }
+
+        .youth-figure {
+            width: 60px;
+            height: 100px;
+            position: relative;
+            animation: float-energy 6s ease-in-out infinite;
+        }
+
+        .youth-body {
+            width: 100%;
+            height: 70%;
+            background: linear-gradient(180deg, 
+                rgba(139, 69, 19, 0.9) 0%, 
+                rgba(59, 130, 246, 0.8) 30%, 
+                rgba(30, 58, 138, 0.9) 100%);
+            border-radius: 30px 30px 10px 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .youth-body::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.8) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: heart-beat 2s ease-in-out infinite;
+        }
+
+        .energy-aura {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: calc(100% + 20px);
+            height: calc(100% + 20px);
+            border-radius: 50px;
+            background: radial-gradient(circle, 
+                rgba(59, 130, 246, 0.2) 0%, 
+                rgba(34, 197, 94, 0.1) 50%, 
+                transparent 100%);
+            animation: energy-pulse 4s ease-in-out infinite;
+        }
+
+        .youth-figure:nth-child(1) { animation-delay: 0s; }
+        .youth-figure:nth-child(2) { animation-delay: 1s; }
+        .youth-figure:nth-child(3) { animation-delay: 2s; }
+        .youth-figure:nth-child(4) { animation-delay: 0.5s; }
+        .youth-figure:nth-child(5) { animation-delay: 1.5s; }
+
+        .youth-figure:nth-child(2) .youth-body {
+            background: linear-gradient(180deg, rgba(210, 180, 140, 0.9) 0%, rgba(236, 72, 153, 0.8) 30%, rgba(219, 39, 119, 0.9) 100%);
+        }
+
+        .youth-figure:nth-child(3) .youth-body {
+            background: linear-gradient(180deg, rgba(160, 82, 45, 0.9) 0%, rgba(34, 197, 94, 0.8) 30%, rgba(21, 128, 61, 0.9) 100%);
+        }
+
+        .youth-figure:nth-child(4) .youth-body {
+            background: linear-gradient(180deg, rgba(218, 165, 32, 0.9) 0%, rgba(147, 51, 234, 0.8) 30%, rgba(126, 34, 206, 0.9) 100%);
+        }
+
+        .youth-figure:nth-child(5) .youth-body {
+            background: linear-gradient(180deg, rgba(139, 69, 19, 0.9) 0%, rgba(239, 68, 68, 0.8) 30%, rgba(220, 38, 127, 0.9) 100%);
+        }
+
+        /* Digital Shield */
+        .digital-shield {
+            position: absolute;
+            top: 25%;
+            left: 30%;
+            width: 80px;
+            height: 100px;
+            z-index: 15;
+        }
+
+        .shield-core {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(0, 255, 255, 0.9) 0%, 
+                rgba(59, 130, 246, 0.8) 50%, 
+                rgba(34, 197, 94, 0.9) 100%);
+            clip-path: polygon(50% 0%, 0% 25%, 0% 75%, 25% 100%, 75% 100%, 100% 75%, 100% 25%);
+            animation: shield-energy 3s ease-in-out infinite;
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.6);
+        }
+
+        .shield-lock {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 16;
+        }
+
+        /* Title */
+        .cosmic-title {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 20;
+        }
+
+        .main-title {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, 
+                #ffffff 0%,
+                #00ffff 25%,
+                #3b82f6 50%,
+                #22c55e 75%,
+                #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            animation: cosmic-glow 4s ease-in-out infinite;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: subtitle-pulse 6s ease-in-out infinite;
+        }
+
+        /* Floating Tech Elements */
+        .tech-constellation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 8;
+        }
+
+        .tech-icon {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.8);
+            filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+            animation: orbit-float 12s ease-in-out infinite;
+        }
+
+        /* Animations */
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0.3; transform: scale(1); }
+        }
+
+        @keyframes light-speed {
+            0% { transform: translateX(-200px) scaleX(0); opacity: 0; }
+            10% { opacity: 1; transform: scaleX(1); }
+            90% { opacity: 1; }
+            100% { transform: translateX(100vw) scaleX(0); opacity: 0; }
+        }
+
+        @keyframes earth-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes earth-surface {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(-360deg); }
+        }
+
+        @keyframes earth-atmosphere {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+
+        @keyframes orbit-rotation {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes node-pulse {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 15px rgba(0, 255, 136, 0.8); 
+            }
+            50% { 
+                transform: scale(1.5); 
+                box-shadow: 0 0 25px rgba(0, 255, 136, 1); 
+            }
+        }
+
+        @keyframes float-energy {
+            0%, 100% { transform: translateY(0px); }
+            25% { transform: translateY(-15px); }
+            50% { transform: translateY(-5px); }
+            75% { transform: translateY(-20px); }
+        }
+
+        @keyframes heart-beat {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            50% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
+        }
+
+        @keyframes energy-pulse {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        @keyframes shield-energy {
+            0%, 100% { 
+                box-shadow: 0 0 50px rgba(0, 255, 255, 0.6);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 80px rgba(0, 255, 255, 0.9);
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes cosmic-glow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+            }
+            50% { 
+                filter: drop-shadow(0 0 40px rgba(0, 255, 255, 0.8));
+            }
+        }
+
+        @keyframes subtitle-pulse {
+            0%, 100% { opacity: 0.9; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes orbit-float {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg); 
+                opacity: 0.6; 
+            }
+            25% { 
+                transform: translateY(-30px) rotate(90deg); 
+                opacity: 1; 
+            }
+            50% { 
+                transform: translateY(-10px) rotate(180deg); 
+                opacity: 0.8; 
+            }
+            75% { 
+                transform: translateY(-25px) rotate(270deg); 
+                opacity: 0.9; 
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title { font-size: 2.5rem; }
+            .subtitle { font-size: 1rem; }
+            .earth-container { width: 300px; height: 300px; }
+            .network-grid { width: 400px; height: 400px; }
+            .youth-collective { gap: 20px; }
+            .youth-figure { width: 40px; height: 70px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>PowerHTMLPoint Presentations</h1>
-            <p class="subtitle">Interactive Web-Based Slide Presentations</p>
-        </header>
-        
-        <div class="presentations">
-            <div class="presentation-card">
-                <div class="card-image iot"></div>
-                <div class="card-content">
-                    <h3><i class="fas fa-wifi"></i> IoT Forensics</h3>
-                    <p>Learn about digital investigation techniques for Internet of Things devices, security challenges, and forensic methodologies.</p>
-                    <a href="./iot.html" class="view-btn">View Presentation</a>
-                </div>
+    <div class="universe">
+        <!-- Starfield -->
+        <div class="starfield">
+            <!-- Stars generated by JavaScript would go here, but using CSS for now -->
+            <div class="star small" style="top: 10%; left: 15%; animation-delay: 0s;"></div>
+            <div class="star medium" style="top: 20%; left: 80%; animation-delay: 1s;"></div>
+            <div class="star large" style="top: 15%; left: 45%; animation-delay: 2s;"></div>
+            <div class="star small" style="top: 25%; left: 25%; animation-delay: 0.5s;"></div>
+            <div class="star medium" style="top: 30%; left: 70%; animation-delay: 1.5s;"></div>
+            <div class="star large" style="top: 5%; left: 60%; animation-delay: 2.5s;"></div>
+            <div class="star small" style="top: 35%; left: 35%; animation-delay: 3s;"></div>
+            <div class="star medium" style="top: 12%; left: 90%; animation-delay: 0.3s;"></div>
+            <div class="star small" style="top: 40%; left: 10%; animation-delay: 1.2s;"></div>
+            <div class="star large" style="top: 8%; left: 30%; animation-delay: 2.8s;"></div>
+            <div class="star small" style="top: 45%; left: 85%; animation-delay: 0.8s;"></div>
+            <div class="star medium" style="top: 18%; left: 55%; animation-delay: 1.8s;"></div>
+        </div>
+
+        <!-- Hyperspace Light Beams -->
+        <div class="hyperspace">
+            <div class="light-beam" style="top: 20%; width: 300px; animation-delay: 0s;"></div>
+            <div class="light-beam cyan" style="top: 40%; width: 250px; animation-delay: 1s;"></div>
+            <div class="light-beam purple" style="top: 60%; width: 350px; animation-delay: 2s;"></div>
+            <div class="light-beam green" style="top: 80%; width: 280px; animation-delay: 0.5s;"></div>
+            <div class="light-beam" style="top: 30%; width: 320px; animation-delay: 1.5s;"></div>
+            <div class="light-beam cyan" style="top: 70%; width: 270px; animation-delay: 2.5s;"></div>
+        </div>
+
+        <!-- Global Network Grid -->
+        <div class="network-grid">
+            <div class="orbit-ring">
+                <div class="data-node" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
+                <div class="data-node" style="top: 30%; left: 80%; animation-delay: 1s;"></div>
+                <div class="data-node" style="top: 70%; left: 60%; animation-delay: 2s;"></div>
+                <div class="data-node" style="top: 90%; left: 30%; animation-delay: 0.5s;"></div>
             </div>
-            
-            <div class="presentation-card">
-                <div class="card-image binary"></div>
-                <div class="card-content">
-                    <h3><i class="fas fa-shield-alt"></i> Binary Obfuscation</h3>
-                    <p>Explore advanced binary obfuscation techniques for AES implementation, including defense and attack strategies.</p>
-                    <a href="./binary-obfuscation.html" class="view-btn">View Presentation</a>
-                </div>
+            <div class="orbit-ring">
+                <div class="data-node" style="top: 15%; left: 70%; animation-delay: 1.5s;"></div>
+                <div class="data-node" style="top: 85%; left: 15%; animation-delay: 2.5s;"></div>
+            </div>
+            <div class="orbit-ring">
+                <div class="data-node" style="top: 40%; left: 40%; animation-delay: 0.8s;"></div>
+                <div class="data-node" style="top: 60%; left: 80%; animation-delay: 1.8s;"></div>
             </div>
         </div>
-        
-        <footer>
-            <p>Hosted on <a href="https://github.com/EmperialX/power-htmlpoint" class="github-link">GitHub <i class="fab fa-github"></i></a></p>
-        </footer>
+
+        <!-- Earth -->
+        <div class="earth-container">
+            <div class="earth"></div>
+        </div>
+
+        <!-- Digital Shield -->
+        <div class="digital-shield">
+            <div class="shield-core"></div>
+            <svg class="shield-lock" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <circle cx="12" cy="16" r="1"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+        </div>
+
+        <!-- Youth Collective -->
+        <div class="youth-collective">
+            <div class="youth-figure">
+                <div class="energy-aura"></div>
+                <div class="youth-body"></div>
+            </div>
+            <div class="youth-figure">
+                <div class="energy-aura"></div>
+                <div class="youth-body"></div>
+            </div>
+            <div class="youth-figure">
+                <div class="energy-aura"></div>
+                <div class="youth-body"></div>
+            </div>
+            <div class="youth-figure">
+                <div class="energy-aura"></div>
+                <div class="youth-body"></div>
+            </div>
+            <div class="youth-figure">
+                <div class="energy-aura"></div>
+                <div class="youth-body"></div>
+            </div>
+        </div>
+
+        <!-- Tech Constellation -->
+        <div class="tech-constellation">
+            <!-- Global Network -->
+            <svg class="tech-icon" style="top: 25%; left: 15%; animation-delay: 0s;" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+
+            <!-- Digital Education -->
+            <svg class="tech-icon" style="top: 35%; left: 85%; animation-delay: 1s;" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+
+            <!-- Privacy Shield -->
+            <svg class="tech-icon" style="top: 65%; left: 20%; animation-delay: 2s;" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M9 12l2 2 4-4"/>
+            </svg>
+
+            <!-- Digital Innovation -->
+            <svg class="tech-icon" style="top: 75%; left: 75%; animation-delay: 0.5s;" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+
+            <!-- Connected Future -->
+            <svg class="tech-icon" style="top: 15%; left: 70%; animation-delay: 1.5s;" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16.5 9.4l-9-5.19"/>
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                <polyline points="7.5,4.21 12,6.81 16.5,4.21"/>
+                <polyline points="7.5,19.79 7.5,14.6 3,12"/>
+                <polyline points="21,12 16.5,14.6 16.5,19.79"/>
+            </svg>
+
+            <!-- Human Rights -->
+            <svg class="tech-icon" style="top: 55%; left: 10%; animation-delay: 2.5s;" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+        </div>
+
+        <!-- Title -->
+        <div class="cosmic-title">
+            <h1 class="main-title">YOUTH FOR A<br>HUMAN-CENTRIC<br>DIGITAL FUTURE</h1>
+            <p class="subtitle">Internet Governance • Global Unity • Digital Rights</p>
+        </div>
     </div>
 </body>
 </html>
